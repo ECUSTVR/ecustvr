@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网址导航</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-item {
+            margin-bottom: 1rem;
+        }
+        .link-item a {
+            display: block;
+            padding: 1rem;
+            background-color: white;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s;
+        }
+        .link-item a:hover {
+            background-color: #f0f0f0;
+        }
+        .link-item a::first-letter {
+            color: transparent; /* 将第一个字母的颜色设为透明，相当于隐藏 */
+        }
+        #search-bar {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">VR俱乐部</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">社团简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">发展历程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://ss.zyqs.xyz/VR">活动影像</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzIzMDU3NzQ1MQ==&scene=1&album_id=2927847544494440450&count=3#wechat_redirect">使用攻略</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dh.html">网址导航</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <input type="text" id="search-bar" placeholder="搜索网址...">
+        <ul class="link-list">
+            <!-- 在这里添加按A-Z分类排序的链接项目 -->
+            <li class="link-item"><a href="https://jwc.ecust.edu.cn">J教务处信息网</a></li>
+            <li class="link-item"><a href="http://sccount.ecust.edu.cn">S上网信息统计</a></li>
+            <li class="link-item"><a href="https://zhxy.ecust.edu.cn/">Z资环学院</a></li>
+            <li class="link-item"><a href="https://xiaoban.ecust.edu.cn/">X校长办公室</a></li>
+            <li class="link-item"><a href="https://sslvpn.ecust.edu.cn/">VVPN（WEB）</a></li>
+            <li class="link-item"><a href="https://vpn.ecust.edu.cn/">VVPN（教职工）</a></li>
+            <li class="link-item"><a href="http://172.20.17.6/">X校内测速</a></li>
+            <li class="link-item"><a href="https://inquiry.ecust.edu.cn/jsxsd/">Z综合教务管理系统</a></li>
+            <li class="link-item"><a href="https://ykt.ecust.edu.cn/">Y一卡通服务平台</a></li>
+            <li class="link-item"><a href="https://lib.ecust.edu.cn/">T图书馆</a></li>
+            <li class="link-item"><a href="http://172.20.21.19/">F仿真物理实验</a></li>
+            <li class="link-item"><a href="http://172.20.18.11/">T体育管理综合查询系统V2.0</a></li>
+            <li class="link-item"><a href="https://pan.ecust.edu.cn/">H华理云</a></li>
+        </ul>
+    </div>
+    <footer>
+        <script type="text/javascript">
+            var currentYear = new Date().getFullYear();
+            document.write('&copy; ' + currentYear + ' VR俱乐部 <a class="nav-link" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023000758号-2</a>');
+        </script>
+    </footer>
+    <script>
+        const linkList = document.querySelector('.link-list');
+        const linkItems = Array.from(linkList.querySelectorAll('.link-item'));
+
+        const categories = {};
+
+        // 按A-Z分类链接
+        linkItems.forEach(item => {
+            const linkText = item.querySelector('a').textContent.trim();
+            const firstChar = linkText.charAt(0).toUpperCase();
+            
+            if (!categories[firstChar]) {
+                categories[firstChar] = [];
+            }
+            
+            categories[firstChar].push(item);
+        });
+
+        // 清空原始链接列表
+        linkList.innerHTML = '';
+
+        // 添加按A-Z分类的链接
+        Object.keys(categories).sort().forEach(category => {
+            const categoryItems = categories[category];
+            const categoryHeader = document.createElement('h2');
+            categoryHeader.textContent = category;
+            linkList.appendChild(categoryHeader);
+
+            const categoryList = document.createElement('ul');
+            categoryList.classList.add('link-list');
+            categoryItems.forEach(item => {
+                categoryList.appendChild(item);
+            });
+
+            linkList.appendChild(categoryList);
+        });
+
+        // 简单搜索功能
+        const searchBar = document.getElementById('search-bar');
+
+        searchBar.addEventListener('input', () => {
+            const searchTerm = searchBar.value.trim().toLowerCase();
+            linkItems.forEach(item => {
+                const linkText = item.querySelector('a').textContent.toLowerCase();
+                if (linkText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+</body>
+</html>
