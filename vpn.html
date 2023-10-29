@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网址转换</title>
+    <script>
+        function convertUrl() {
+            var inputUrl = document.getElementById("inputUrl").value.trim(); // 移除前后空格
+            var convertedUrl = "https://"; // 默认以https开头
+            var isHttps = false; // 标记是否是https
+            var isPort = false; // 标记是否存在端口号
+
+            // 检查是否存在端口号
+            if (inputUrl.match(/:\d+\//)) {
+                isPort = true;
+            }
+
+            if (inputUrl === "") {
+                convertedUrl += "请输入有效的URL";
+            } else {
+                var match = inputUrl.match(/^(https?:\/\/)?([^\/]+)(\/.*)?$/);
+                if (match) {
+                    isHttps = match[1] === "https://"; // 判断是否是https
+                    var domain = match[2].replace(/[.:\/]/g, "-");
+                    var path = match[3] || "/";
+                    
+                    // 处理端口号
+                    if (!isHttps && inputUrl.match(/:\d+\//)) {
+                        var port = inputUrl.match(/:(\d+)\//)[1];
+                        path = path.replace(":" + port + "/", "-" + port + "-p");
+                    }
+
+                    convertedUrl += domain + (isPort ? "-p" : "") + (isHttps ? "-s" : "") + ".sslvpn.ecust.edu.cn:8118" + path;
+                } else {
+                    convertedUrl += "请输入有效的URL";
+                }
+            }
+            
+            // 获取显示结果的元素
+            var convertedUrlElement = document.getElementById("convertedUrl");
+            
+            // 创建超链接元素
+            var linkElement = document.createElement("a");
+            linkElement.href = convertedUrl;
+            linkElement.textContent = convertedUrl;
+            
+            // 清空显示结果的元素，并添加超链接元素
+            convertedUrlElement.innerHTML = "";
+            convertedUrlElement.appendChild(linkElement);
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            padding-bottom: 60px; /* 为页脚腾出空间 */
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        .logo-img {
+            max-width: 66px; /* 调整图片的最大宽度 */
+            height: auto;
+            vertical-align: middle; /* 垂直居中对齐，使图片与文字对齐 */
+            margin-right: 0px; /* 可根据需要调整图片和文字之间的间距 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">VR俱乐部</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">社团简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">发展历程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cgzs.html">成果展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://ss.zyqs.xyz/VR">活动影像</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzIzMDU3NzQ1MQ==&scene=1&album_id=2927847544494440450&count=3#wechat_redirect">使用攻略</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dh.html">网址导航</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="content container py-5">
+        <h2>华理VPN链接转换工具</h2>
+        <label for="inputUrl">输入原始网址（请输入以http://或者https://开头的网址。如有端口号，必须端口号后面有/，如':8118/'）：</label>
+        <input type="text" id="inputUrl" placeholder="http://www.baidu.com">
+        <button onclick="convertUrl()">转换</button>
+        <p>转换后的网址：</p>
+        <p id="convertedUrl"></p>
+        <p>特别说明，您的统一身份认证账号密码信息不经过本网站，本站仅提供链接转换服务。如您遗忘统一身份认证账号密码，请咨询信息办</p>
+    </div>
+    
+    <footer>
+        <script type="text/javascript">
+            var currentYear = new Date().getFullYear();
+            document.write('&copy; ' + currentYear + ' VR俱乐部 <a class="nav-link" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023000758号-2</a> <a class="nav-link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31012102000135" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/>沪公网安备31012102000135号</p></a>');
+        </script>
+    </footer>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+</body>
+</html>
