@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VR俱乐部</title>
+    <title>华东理工大学VR俱乐部</title>
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
     <style>
         body {
@@ -24,6 +24,12 @@
             text-align: center;
             padding: 15px 0;
             position: relative;
+        }
+        .logo-img {
+            max-width: 66px; /* 调整图片的最大宽度 */
+            height: auto;
+            vertical-align: middle; /* 垂直居中对齐，使图片与文字对齐 */
+            margin-right: 0px; /* 可根据需要调整图片和文字之间的间距 */
         }
     </style>
 </head>
@@ -59,16 +65,48 @@
         </div>
     </nav>
 
+    <!-- 轮播 -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    
+        <!-- 指示符 -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+        
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TLNRHzrVbMK2TJbxOkNhCfyWCAD2BMhJ&authKey=btUpthAjvZT4%2BcsL9%2FqKWP7aCYWQ75oluC9sX0PZ%2BZo9%2BTWYBO6LajKWOYRV0DUg&noverify=0&group_code=922527299"><img decoding="async" src="img/cover1.png" class="d-block" style="width:100%"></a>
+            </div>
+            <div class="carousel-item">
+            <a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TLNRHzrVbMK2TJbxOkNhCfyWCAD2BMhJ&authKey=btUpthAjvZT4%2BcsL9%2FqKWP7aCYWQ75oluC9sX0PZ%2BZo9%2BTWYBO6LajKWOYRV0DUg&noverify=0&group_code=922527299"><img decoding="async" src="img/cover2.png" class="d-block" style="width:100%"></a>
+            </div>
+            <div class="carousel-item">
+            <a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TLNRHzrVbMK2TJbxOkNhCfyWCAD2BMhJ&authKey=btUpthAjvZT4%2BcsL9%2FqKWP7aCYWQ75oluC9sX0PZ%2BZo9%2BTWYBO6LajKWOYRV0DUg&noverify=0&group_code=922527299"><img decoding="async" src="img/cover3.png" class="d-block" style="width:100%"></a>
+            </div>
+        </div>
+        
+        <!-- 左右切换按钮 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
     <div class="content container py-5">
         <h2 class="mb-4">公告</h2>
         <p>欢迎来到VR俱乐部的官方网站！在这里，你将有机会探索虚拟现实世界的奇妙之处。</p>
-        <p><a href="https://qm.qq.com/cgi-bin/qm/qr?k=dmvL-oq6gfxi5OD8d6vwyinJGn_4U_L-&authKey=pVwvkS+jhX5uReYXRr+5WHxd8DEUmlungWkc4ysQzBxiMkCRkEKB2TOU1WjHo9Mt&noverify=0&personal_qrcode_source=0">加入我们</a>，一起开启数字世界的冒险吧！</p>
+        <p><a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TLNRHzrVbMK2TJbxOkNhCfyWCAD2BMhJ&authKey=btUpthAjvZT4%2BcsL9%2FqKWP7aCYWQ75oluC9sX0PZ%2BZo9%2BTWYBO6LajKWOYRV0DUg&noverify=0&group_code=922527299">加入我们</a>，一起开启数字世界的冒险吧！</p>
     </div>
     
     <footer>
         <script type="text/javascript">
             var currentYear = new Date().getFullYear();
-            document.write('&copy; ' + currentYear + ' VR俱乐部 <a class="nav-link" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023000758号-2</a>');
+            document.write('&copy; ' + currentYear + ' VR俱乐部 <a class="nav-link" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023000758号-2</a> <a class="nav-link" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31012102000135" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://www.beian.gov.cn/img/ghs.png" style="float:left;"/>沪公网安备31012102000135号</p></a><a class="nav-link" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本网站由<img src="/img/upyun.png" alt="又拍云" class="logo-img img-fluid">提供CDN加速/云储存服务</a>');
         </script>
     </footer>
 
