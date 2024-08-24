@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁止访问 - VR俱乐部</title>
+    <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            padding-bottom: 60px; /* 为页脚腾出空间 */
+        }
+
+        footer {
+            background-color: #b81414;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b81414;">
+        <div class="container">
+            <a class="navbar-brand" href="/">VR俱乐部</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">社团简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">发展历程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cgzs.html">成果展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://ss.ecustvr.top/VR">活动影像</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzIzMDU3NzQ1MQ==&scene=1&album_id=2927847544494440450&count=3#wechat_redirect">使用攻略</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dh.html">网址导航</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wiki.ecustvr.top/">Wiki</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content container py-5">
+        <h2 class="mb-4">禁止访问</h2>
+        <p>您的IP不在许可范围内！</p>
+        <span id="ipv4"></span><span id="ipv6"></span><script src="https://net.sjtu.edu.cn/script/jquery.min.js"></script><script src="https://net.sjtu.edu.cn/script/nav.js"></script>
+    </div>
+    <footer>
+        <script type="text/javascript">
+            var currentYear = new Date().getFullYear();
+            document.write('&copy; ' + currentYear + ' VR俱乐部 <a class="nav-link" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023000758号-2</a> <a class="nav-link" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31012102000135" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://beian.mps.gov.cn/img/ghs.png" style="float:left;"/>沪公网安备31012102000135号</p></a>');
+        </script>
+    </footer>
+
+    <script src="https://s4.zstatic.net/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://s4.zstatic.net/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+</body>
+</html>
